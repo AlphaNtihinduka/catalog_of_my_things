@@ -1,4 +1,6 @@
-class MusicAlbum
+require 'item'
+
+class MusicAlbum < item
     attr_accessor :on_spotify
     attr_reader :can_be_archived?
 
