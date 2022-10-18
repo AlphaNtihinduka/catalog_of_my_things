@@ -39,5 +39,5 @@ class Item
   end
 end
 
-item = Item.new('12 December 2021')
+item = Item.new('13 December 2021')
 puts item.move_to_achieve
