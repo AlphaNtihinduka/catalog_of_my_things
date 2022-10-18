@@ -7,4 +7,8 @@ class MusicAlbum
         @on_spotify = on_spotify
         @can_be_archived = can_be_archived
     end
+
+    def can_be_archived?()
+        true if super() && @on_spotify
+    end
 end
