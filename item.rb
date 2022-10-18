@@ -4,10 +4,10 @@ class Item
   attr_reader :id, :genre, :author, :source, :label
   attr_accessor :publish_date, :archieved
 
-  def initialize(publish_date, _archieved: false)
+  def initialize(publish_date)
     @id = Random.rand(1..1000)
     @publish_date = publish_date
-    @archieved = archieved
+    @archieved = false
   end
 
   def add_genre(genre)
@@ -38,6 +38,3 @@ class Item
     current_year - year_publication > 10
   end
 end
-
-item = Item.new('13 December 2021')
-puts item.move_to_achieve
