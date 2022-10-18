@@ -38,6 +38,3 @@ class Item
     current_year - year_publication > 10
   end
 end
-
-item = Item.new('13 December 2021')
-puts item.move_to_achieve
