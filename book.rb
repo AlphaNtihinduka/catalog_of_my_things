@@ -30,9 +30,9 @@ class Book < Item
     if books.empty?
       puts '💥💥The catalog has no books'
     else
-      puts '💥💥List of all books:'
+      puts '💥List of all books:'
       books.each do |book|
-        puts "Publish_date: #{book.publish_date}, Publisher: #{book.publisher}, Cover_state: #{book.cover_state}"
+        puts "  Publish_date: #{book.publish_date}, Publisher: #{book.publisher}, Cover_state: #{book.cover_state}"
       end
     end
     puts ''

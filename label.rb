@@ -30,7 +30,7 @@ class Label
       puts 'The Catalog has no labels'
     else
       puts '💥List of all labels:'
-      labels.each { |label| puts "💥💥Title: #{label.title}, Color: #{label.color}" }
+      labels.each { |label| puts "  Title: #{label.title}, Color: #{label.color}" }
     end
     puts ''
   end
