@@ -25,4 +25,14 @@ class Label
     puts '💥A label is added successfullly'
     puts ''
   end
+
+  def self.list_all_labels(labels)
+    if labels.empty?
+      puts 'The Catalog has no labels'
+    else
+      puts '💥List of all labels:'
+      labels.each { |label| puts "💥💥Title: #{label.title}, Color: #{label.color}" }
+    end
+    puts ''
+  end
 end
