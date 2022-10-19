@@ -1,16 +1,17 @@
-require 'item'
+require_relative './item'
 
-class MusicAlbum < item
-    attr_accessor :on_spotify
-    attr_reader :can_be_archived?
+class MusicAlbum < Item
+  attr_accessor :on_spotify, :publish_date
 
-    def initialize(on_spotify, *args)
-        super(*args)
-        @on_spotify = on_spotify
-        @can_be_archived = can_be_archived
-    end
+  def initialize(on_spotify, publish_date)
+    super(publish_date)
+    @on_spotify = on_spotify
+  end
 
-    def can_be_archived?()
-        true if super() && @on_spotify
-    end
+  def can_be_archived?
+    true if super() && @on_spotify
+  end
 end
+
+music_album = MusicAlbum.new(true, '2022/10/18')
+puts music_album.on_spotify 
