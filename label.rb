@@ -14,7 +14,6 @@ class Label
     item.label = self
   end
 
-
   def self.add_label(labels)
     puts 'Add a label'
     print 'Title: '

@@ -38,5 +38,3 @@ class Book < Item
     puts ''
   end
 end
-
-end
