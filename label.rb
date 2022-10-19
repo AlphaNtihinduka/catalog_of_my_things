@@ -13,4 +13,16 @@ class Label
     @items << item unless @items.include?(item)
     item.label = self
   end
+
+
+  def self.add_label(labels)
+    puts 'Add a label'
+    print 'Title: '
+    title = gets.chomp
+    print 'Color: '
+    color = gets.chomp
+    labels << Label.new(title, color)
+    puts '💥A label is added successfullly'
+    puts ''
+  end
 end
