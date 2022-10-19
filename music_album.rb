@@ -12,6 +12,5 @@ class MusicAlbum < Item
     true if super() && @on_spotify
   end
 end
-
 music_album = MusicAlbum.new(true, '2022/10/18')
 puts music_album.on_spotify

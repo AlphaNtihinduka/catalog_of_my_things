@@ -1,7 +1,8 @@
 require './app'
 
-class Main
-  def test_method
-    'This is test method'
-  end
+def main
+  app = App.new
+  app.menu
 end
+
+main
