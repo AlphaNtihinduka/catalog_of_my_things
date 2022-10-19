@@ -1,7 +1,10 @@
 require './item'
+require './book'
+require './label'
 
 class App
-  def test_method
-    'This is test method'
+  def initialize
+    @books = []
+    @labels = []
   end
 end
