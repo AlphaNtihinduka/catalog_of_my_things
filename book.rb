@@ -50,4 +50,16 @@ class Book < Item
     puts '💥A book is added successfullly'
     puts ''
   end
+
+  def self.list_all_books(books)
+    if books.empty?
+      puts '💥💥The catalog has no books'
+    else
+      puts '💥List of all books:'
+      books.each do |book|
+        puts "  Publish_date: #{book.publish_date}, Publisher: #{book.publisher}, Cover_state: #{book.cover_state}"
+      end
+    end
+    puts ''
+  end
 end
