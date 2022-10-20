@@ -6,6 +6,7 @@ require_relative './json_handler'
 class App
   def initialize
     @books = []
+    @labels = []
   end
 
   def options
@@ -19,13 +20,13 @@ class App
 
   def save_data
     JsonHandler.write_books(@books)
-    # JsonHandler.write_labels(@labels)
+    JsonHandler.write_labels(@labels)
   end
 
 
   def read_data
     JsonHandler.read_books(@books)
-    # JsonHandler.read_labels(@labels)
+    JsonHandler.read_labels(@labels)
   end
 
   def menu
@@ -38,7 +39,7 @@ class App
       option = gets.chomp.to_i
       case option
       when 1 then Book.list_all_books(@books)
-      when 2 then Label.list_all_labels(@books)
+      when 2 then Label.list_all_labels(@labels)
       when 3 then Book.add_book(@books)
       when 4
         save_data
