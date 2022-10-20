@@ -22,6 +22,12 @@ class App
     # JsonHandler.write_labels(@labels)
   end
 
+
+  def read_data
+    JsonHandler.read_books(@books)
+    # JsonHandler.read_labels(@labels)
+  end
+
   def menu
     puts 'Welcome to my catalog'
     puts '💥💥💥💥💥💥💥'
