@@ -1,20 +1,27 @@
 require './item'
 require './book'
 require './label'
+require './music_album'
+require './genre'
 
 class App
   def initialize
     @books = []
     @labels = []
+    @albums = []
+    @genres = []
   end
 
   def options
     'Do you want to choose an option in the menu? Please type an option number:
     1. List all books
     2. List all labels
+    9. List all Music Album
+    10. List all Genres
     3. Add a book
     4. Add a label
-    5. Exit
+    11. Add a Music Album
+    25. Exit
     Please choose an option:'
   end
 
@@ -28,9 +35,12 @@ class App
       case option
       when 1 then Book.list_all_books(@books)
       when 2 then Label.list_all_labels(@labels)
+      when 9 then MusicAlbum.list_all_albums(@albums)
+      when 10 then Genre.list_all_genres(@genres)
       when 3 then Book.add_book(@books)
       when 4 then Label.add_label(@labels)
-      when 5 then exit
+      when 11 then MusicAlbum.create_music_album(@albums)
+      when 25 then exit
       else puts 'Invalid option'
       end
     end

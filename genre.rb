@@ -7,9 +7,16 @@ class Genre
     @items = []
   end
 
-  def add_item(item)
-    @items << item
-    item.add_genre(self)
+  def add_album(album)
+    @albums << album unless @albums.include?(album)
+    album.source = self
+  end
+
+  def self.list_all_genres(genres)
+    puts 'No genres found, please add a new music album.' if genres.empty?
+    genres.map do |genre|
+      puts "+ #{genre.name}"
+    end
   end
 end
 
