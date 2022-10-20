@@ -29,6 +29,7 @@ class App
   end
 
   def menu
+    read_data
     puts 'Welcome to my catalog'
     puts '💥💥💥💥💥💥💥'
     loop do
