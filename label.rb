@@ -31,7 +31,7 @@ class Label
     else
       puts '💥List of all labels:'
       books.each_with_index do |book, index|
-        puts "[#{index + 1}] Title: #{book.label.title}, Color: #{book.label.color}"
+        puts "[#{index + 1}] Title: #{book.title}, Color: #{book.color}"
       end
     end
     puts ''
