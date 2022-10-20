@@ -9,28 +9,30 @@ class Label
     @items = []
   end
 
-  def add_item(item)
-    @items << item unless @items.include?(item)
-    item.label = self
+  def add_book(book)
+    @items << book unless @items.include?(book)
+    book.label = self
   end
 
-  def self.add_label(labels)
-    puts 'Add a label'
-    print 'Title: '
-    title = gets.chomp
-    print 'Color: '
-    color = gets.chomp
-    labels << Label.new(title, color)
-    puts '💥A label is added successfullly'
-    puts ''
-  end
+  # def self.add_label(labels)
+  #   puts 'Add a label'
+  #   print 'Title: '
+  #   title = gets.chomp
+  #   print 'Color: '
+  #   color = gets.chomp
+  #   labels << Label.new(title, color)
+  #   puts '💥A label is added successfullly'
+  #   puts ''
+  # end
 
-  def self.list_all_labels(labels)
-    if labels.empty?
+  def self.list_all_labels(books)
+    if books.empty?
       puts 'The Catalog has no labels'
     else
       puts '💥List of all labels:'
-      labels.each { |label| puts "  Title: #{label.title}, Color: #{label.color}" }
+      books.each_with_index do |book, index|
+        puts "[#{index + 1}] Title: #{book.label.title}, Color: #{book.label.color}"
+      end
     end
     puts ''
   end
