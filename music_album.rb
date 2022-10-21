@@ -11,9 +11,12 @@ class MusicAlbum < Item
     @on_spotify = on_spotify
   end
 
-  def add_music_album
-    @genre.push(self) unless genre.music_album.includes?(self) 
-  end
+  def add_genre(genre)
+    genre.albums.push(self) unless genre.albums.include?(self)
+  end  
+  # def add_music_album
+  #   @genre.push(self) unless genre.music_album.includes?(self) 
+  # end
 
   def self.list_all_albums(albums)
     if albums.empty?
@@ -43,7 +46,6 @@ class MusicAlbum < Item
     albums << MusicAlbum.new(title, publish_date, genre, spotify_choice)
     puts 'Music Album created succesfully '
   end
-
   def can_be_archived?
     true if super() && @on_spotify
   end

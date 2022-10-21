@@ -3,6 +3,8 @@ require './book'
 require './label'
 require './music_album'
 require './genre'
+require './preserve/input'
+require './preserve/output'
 
 class App
   def initialize
@@ -40,7 +42,9 @@ class App
       when 3 then Book.add_book(@books)
       when 4 then Label.add_label(@labels)
       when 11 then MusicAlbum.create_music_album(@albums)
-      when 25 then exit
+      when 25
+        UserInput.save_data(@albums, @genres)
+        exit
       else puts 'Invalid option'
       end
     end

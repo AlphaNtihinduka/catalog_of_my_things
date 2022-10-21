@@ -4,7 +4,7 @@ class Genre
   def initialize(name, _id)
     @id = Random.rand(1..1000)
     @name = name
-    @items = []
+    @albums = []
   end
 
   def add_album(album)
@@ -20,5 +20,5 @@ class Genre
   end
 end
 
-genre = Genre.new('Titi', 10)
-puts genre.id
+# genre = Genre.new('Titi', 10)
+# puts genre.id
