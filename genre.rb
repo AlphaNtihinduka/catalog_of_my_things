@@ -20,6 +20,3 @@ class Genre
     end
   end
 end
-
-# genre = Genre.new('Titi', 10)
-# puts genre.id

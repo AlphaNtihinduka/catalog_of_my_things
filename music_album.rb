@@ -10,10 +10,6 @@ class MusicAlbum < Item
     @on_spotify = on_spotify
   end
 
-  # def add_music_album
-  #   @genre.push(self) unless genre.music_album.includes?(self) 
-  # end
-
   def self.list_all_albums(albums)
     if albums.empty?
       puts 'Oops! no album available '
