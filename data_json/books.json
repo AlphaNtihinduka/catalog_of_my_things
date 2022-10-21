@@ -53,5 +53,30 @@
     "publish_date": "adf",
     "publisher": "af",
     "cover_state": "af"
+  },
+  {
+    "publish_date": "jju",
+    "publisher": "poi",
+    "cover_state": "poi"
+  },
+  {
+    "publish_date": "erww",
+    "publisher": "fasdf",
+    "cover_state": "adf"
+  },
+  {
+    "publish_date": "12/10/2021",
+    "publisher": "asd",
+    "cover_state": "adf"
+  },
+  {
+    "publish_date": "12/12/2000",
+    "publisher": "adf",
+    "cover_state": "adf"
+  },
+  {
+    "publish_date": "12/12/2021",
+    "publisher": "adfa",
+    "cover_state": "good"
   }
 ]
