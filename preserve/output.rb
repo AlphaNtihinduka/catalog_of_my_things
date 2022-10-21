@@ -33,32 +33,3 @@ class UserOutput
     populate_genres(genres)
   end
 end
-
-# require 'json'
-# require_relative 'input'
-
-# module PreserveData
-#     def store_music_album
-#         data_array = []
-#         @albums.each do | album |
-#             data_array.push({
-#                 Title: album.title,
-#                 Published_date: album.publish_date,
-#                 Genre: album.genre,
-#                 on_spotify: album.on_spotify
-#             })
-#             end
-
-#             write_json(data_array, './storedata/musicAlbumData.json')
-#     end
-
-#     def Read_json
-#         readData = []
-#         readers = Read_json('./storedata/musicAlbumData.json')
-#         readers.each do |reader|
-#             music = MusicAlbum.new(reader['title'], reader['publish_date'], reader['genre'], reader['on_spotify'])
-#             readData.push(music)
-#         end
-#         readData
-#     end
-# end

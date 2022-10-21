@@ -33,27 +33,3 @@ class UserInput
     save_genres(genres)
   end
 end
-
-
-# require 'json'
-
-# module FileHandle 
-#     def write_json(file_name, array)
-#         return unless if File.exist?(file_name)
-#  opts = {
-#     array_nl: '\nl',
-#     object_nl: '\nl',
-#     indent: '   ',
-#     space: ' ',
-#     space_before: ' '
-#  }
-#  File.write(file_name, JSON.pretty_generate(array, opts))
-        
-#     end
-
-#     def Read_json(file_name)
-#         file = File.read(file_name)
-#         JSON.parse.file
-#     end
-#  end
-# end

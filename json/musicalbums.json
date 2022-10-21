@@ -1,23 +1,30 @@
 [
 	{
-		"id": "327",
-		"title": "Tupac",
+		"id": "990",
+		"title": "20/02/2011",
 		"genre": "Hiphop",
-		"release_date": "20/02/2011",
+		"release_date": "Tupac",
 		"on_spotify": "true"
 	},
 	{
-		"id": "174",
-		"title": "23/06/2009",
+		"id": "496",
+		"title": "Joht",
 		"genre": "hshyu",
-		"release_date": "Joht",
+		"release_date": "23/06/2009",
 		"on_spotify": "true"
 	},
 	{
-		"id": "948",
-		"title": "Ferda",
+		"id": "418",
+		"title": "23/03/2003",
 		"genre": "Pop",
-		"release_date": "23/03/2003",
+		"release_date": "Ferda",
+		"on_spotify": "true"
+	},
+	{
+		"id": "961",
+		"title": "Ashanti",
+		"genre": "Rap",
+		"release_date": "30/10/2005",
 		"on_spotify": "true"
 	}
 ]
