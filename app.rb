@@ -3,13 +3,22 @@ require './book'
 require './label'
 require './game'
 require './author'
+require_relative './save_game'
 
 class App
   def initialize
     @books = []
     @labels = []
-    @game = []
+    @games = []
     @author = []
+  end
+
+  def save_data
+    SaveGame.write_game(@games)
+  end
+
+  def read_data
+    SaveGame.read_author(@author)
   end
 
   def options
@@ -27,6 +36,7 @@ class App
   end
 
   def menu
+    read_data
     puts 'Welcome to my catalog'
     puts '💥💥💥💥💥💥💥'
     loop do
@@ -38,11 +48,11 @@ class App
       when 2 then Label.list_all_labels(@labels)
       when 3 then Book.add_book(@books)
       when 4 then Label.add_label(@labels)
-      when 5 then Game.create_game(@game)
-      when 6 then Game.list_games(@game)
+      when 5 then Game.create_game(@games)
+      when 6 then Game.list_games(@games)
       when 7 then Author.create_author(@author)
       when 8 then Author.list_author(@author)
-      when 9 then exit
+      when 9 then save_data exit
       else puts 'Invalid option'
       end
     end
