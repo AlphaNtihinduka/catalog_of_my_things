@@ -1,4 +1,5 @@
 require './item'
+require './validity'
 
 class Book < Item
   attr_accessor :publisher, :cover_state, :label
@@ -16,8 +17,9 @@ class Book < Item
 
   def self.add_book(books)
     puts 'Add a book'
-    print 'Publish Date: '
+    print 'Publish Date[dd/mm/yyyy]: '
     publish_date = gets.chomp
+    publish_date = DateValidation.get_date(publish_date)
     print 'Publisher: '
     publisher = gets.chomp
     print 'Cover state Date["good" or "bad"]: '
@@ -31,7 +33,6 @@ class Book < Item
     new_book = Book.new(publish_date, publisher, cover_state, label)
     books << new_book
     label.add_book(new_book)
-    @label << label
     puts '💥A book is added successfullly'
     puts ''
   end
