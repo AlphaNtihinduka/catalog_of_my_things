@@ -31,7 +31,6 @@ class App
     4. Add a label
     5. Add Game 🎮🎇
     6. list all Games 🎮📃
-    7. Add Author 👨‍🦱👩
     8. List all Authors 📃👨‍🏫
     9. Exit
     Please choose an option:'
@@ -46,18 +45,26 @@ class App
       puts '***********'
       option = gets.chomp.to_i
       case option
-      when 1 then Book.list_all_books(@books)
-      when 2 then Label.list_all_labels(@labels)
-      when 3 then Book.add_book(@books)
-      when 4 then Label.add_label(@labels)
-      when 5 then Game.create_game(@games)
-      when 6 then Game.list_games(@games)
-      when 8 then Author.list_author(@games)
-      when 9
+      when 1
+        Book.list_all_books(@books)
+      when 2
+        Label.list_all_labels(@labels)
+      when 3
+        Book.add_book(@books)
+      when 4
+        Label.add_label(@labels)
+      when 5
+        Game.create_game(@games)
         SaveGame.write_game(@games)
         SaveGame.write_author(@games)
+      when 6
+        Game.list_games(@games)
+      when 8
+        Author.list_author(@games)
+      when 9
         exit
-      else puts 'Invalid option'
+      else
+        puts 'Invalid option'
       end
     end
   end

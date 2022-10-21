@@ -4,6 +4,7 @@ require_relative './game'
 
 class SaveGame
   SAVE_DATA = './saved/'.freeze
+
   # write author
   def self.write_author(authors)
     author_array = []
