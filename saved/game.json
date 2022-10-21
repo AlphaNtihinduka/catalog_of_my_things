@@ -1,8 +1,38 @@
 [
   {
-    "id": 709,
-    "publish_date": "02/03/2025",
-    "last_played": "02/06/2030",
-    "multiplayer": false
+    "id": 602,
+    "publish_date": null,
+    "last_played": null,
+    "multiplayer": null
+  },
+  {
+    "id": 652,
+    "publish_date": null,
+    "last_played": null,
+    "multiplayer": null
+  },
+  {
+    "id": 779,
+    "publish_date": null,
+    "last_played": null,
+    "multiplayer": null
+  },
+  {
+    "id": 766,
+    "publish_date": null,
+    "last_played": null,
+    "multiplayer": null
+  },
+  {
+    "id": 312,
+    "publish_date": "022222",
+    "last_played": "11111",
+    "multiplayer": "Yes"
+  },
+  {
+    "id": 345,
+    "publish_date": "02/16/1879",
+    "last_played": "05/09/1995",
+    "multiplayer": "Yes"
   }
 ]

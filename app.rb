@@ -15,10 +15,12 @@ class App
 
   def save_data
     SaveGame.write_game(@games)
+    SaveGame.write_author(@games)
   end
 
   def read_data
-    SaveGame.read_author(@author)
+    SaveGame.read_author(@games)
+    SaveGame.read_game(@games)
   end
 
   def options
@@ -50,9 +52,11 @@ class App
       when 4 then Label.add_label(@labels)
       when 5 then Game.create_game(@games)
       when 6 then Game.list_games(@games)
-      when 7 then Author.create_author(@author)
-      when 8 then Author.list_author(@author)
-      when 9 then save_data exit
+      when 8 then Author.list_author(@games)
+      when 9
+        SaveGame.write_game(@games)
+        SaveGame.write_author(@games)
+        exit
       else puts 'Invalid option'
       end
     end

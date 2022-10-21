@@ -6,7 +6,6 @@ class SaveGame
   SAVE_DATA = './saved/'.freeze
   # write author
   def self.write_author(authors)
-    path_file = "#{SAVE_DATA}author.json"
     author_array = []
     authors.each do |author|
       author_array << {
@@ -15,61 +14,51 @@ class SaveGame
         last_name: author.last_name
       }
     end
-    File.write(path_file, JSON.pretty_generate(author_array,  { indent: "\t", object_nl: "\n" }))
-
+    File.write('./saved/author.json', JSON.pretty_generate(author_array))
   end
 
   # read author
-  def self.read_author(_author)
-    author_array = []
-    return author_array unless File.exist?('./saved/author.json')
+  def self.read_author(games)
+    return games unless File.exist?('./saved/author.json')
 
     author_file = File.open('./saved/author.json')
     data = JSON.parse(author_file.read)
     data.each do |author|
-      author_array << Author.new(author['first_name'], author['last_name'])
+      games << Game.new(author['publish_date'], author['last_played'], author['multiplayer'], author['first_name'],
+                        author['last_name'])
     end
     author_file.close
-    author_array
+    games
   end
 
   # write the game
   def self.write_game(games)
     return if games.empty?
-    path_file = "#{SAVE_DATA}game.json"
-    # game_array = []
-    # games.each do |game|
-    #   game_array << {
-    #     id: game.id,
-    #     publish_date: game.publish_date,
-    #     last_played: game.last_played_at,
-    #     multiplayer: game.multiplayer
-    #   }
-    data_games = games.map do |game|
-      {
-        id: game.id,
-        title: game.title,
-        multiplayer: game.multiplayer,
-        last_played: game.last_played,
-        publish_date: game.publish_date
-      }
 
+    game_array = []
+    games.each do |game|
+      game_array << {
+        id: game.id,
+        publish_date: game.publish_date,
+        last_played: game.last_played_at,
+        multiplayer: game.multiplayer
+      }
     end
-    File.write(path_file, JSON.pretty_generate(data_games))
+    File.write('./saved/game.json', JSON.pretty_generate(game_array))
   end
 
-  #read game data
-  def self.read_game
-    game_array = []
-    return game_array unless File.exist?('./saved/game.json')
+  # read game data
+  def self.read_game(games)
+    # game_array = []
+    return games unless File.exist?('./saved/game.json')
 
     game_file = File.open('./saved/game.json')
     data = JSON.parse(game_file.read)
     data.each do |game|
-      game_array << Game.new(game['publish_date'], game['last_played'], game['multiplayer'])
+      games << Game.new(game['publish_date'], game['last_played'], game['multiplayer'], game['first_name'],
+                        game['last_name'])
     end
     game_file.close
-    game_array
+    games
   end
-
 end
