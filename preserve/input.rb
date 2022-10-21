@@ -7,7 +7,7 @@ class UserInput
       album = {
         id: album.id.to_s,
         title: album.title,
-        # genre: album.genre.name,
+        genre: album.genre.name,
         release_date: album.publish_date,
         on_spotify: album.on_spotify.to_s
       }

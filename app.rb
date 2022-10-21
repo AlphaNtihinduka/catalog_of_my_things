@@ -10,8 +10,8 @@ class App
   def initialize
     @books = []
     @labels = []
-    @albums = []
-    @genres = []
+    @albums = UserOutput.populate_albums
+    @genres = UserOutput.populate_genres
   end
 
   def options
@@ -41,7 +41,7 @@ class App
       when 10 then Genre.list_all_genres(@genres)
       when 3 then Book.add_book(@books)
       when 4 then Label.add_label(@labels)
-      when 11 then MusicAlbum.create_music_album(@albums)
+      when 11 then MusicAlbum.create_music_album(@albums, @genres)
       when 25
         UserInput.save_data(@albums, @genres)
         exit

@@ -10,8 +10,9 @@ class Item
     @archieved = false
   end
 
-  def add_genre(genre)
+  def add_genre=(genre)
     @genre = genre
+    genre.add_item(self) unless genre.albums.include?(self)
   end
 
   def add_author(author)

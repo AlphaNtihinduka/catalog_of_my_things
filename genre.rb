@@ -1,15 +1,16 @@
 class Genre
-  attr_reader :name, :id
+  attr_reader :name, :albums
+  attr_accessor :id
 
-  def initialize(name, _id)
+  def initialize(name)
     @id = Random.rand(1..1000)
     @name = name
     @albums = []
   end
 
-  def add_album(album)
+  def add_item(album)
     @albums << album unless @albums.include?(album)
-    album.source = self
+    album.add_genre = self
   end
 
   def self.list_all_genres(genres)

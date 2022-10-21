@@ -1,8 +1,23 @@
 [
 	{
-		"id": "14",
-		"title": "Hold",
-		"release_date": "28/11/2011",
+		"id": "327",
+		"title": "Tupac",
+		"genre": "Hiphop",
+		"release_date": "20/02/2011",
+		"on_spotify": "true"
+	},
+	{
+		"id": "174",
+		"title": "23/06/2009",
+		"genre": "hshyu",
+		"release_date": "Joht",
+		"on_spotify": "true"
+	},
+	{
+		"id": "948",
+		"title": "Ferda",
+		"genre": "Pop",
+		"release_date": "23/03/2003",
 		"on_spotify": "true"
 	}
 ]
