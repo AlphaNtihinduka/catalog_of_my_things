@@ -26,23 +26,23 @@ class JsonHandler
     File.write(path_file, JSON.pretty_generate(data_books))
   end
 
-    def self.read_labels(labels)
-      path = "#{DATA_DIRECTORY}labels.json"
-      return unless File.exist?(path)
+  def self.read_labels(labels)
+    path = "#{DATA_DIRECTORY}labels.json"
+    return unless File.exist?(path)
 
-      labels_file = File.open(path)
-      JSON.parse(labels_file.read).each do |label|
-        labels << Label.new(label['title'], label['color'])
-      end
+    labels_file = File.open(path)
+    JSON.parse(labels_file.read).each do |label|
+      labels << Label.new(label['title'], label['color'])
     end
+  end
 
-    def self.write_labels(labels)
-      return if labels.empty?
+  def self.write_labels(labels)
+    return if labels.empty?
 
-      path_file = "#{DATA_DIRECTORY}labels.json"
-      data_labels = labels.map do |label|
-        { title: label.title, color: label.color }
-      end
-      File.write(path_file, JSON.pretty_generate(data_labels))
+    path_file = "#{DATA_DIRECTORY}labels.json"
+    data_labels = labels.map do |label|
+      { title: label.title, color: label.color }
     end
+    File.write(path_file, JSON.pretty_generate(data_labels))
+  end
 end
