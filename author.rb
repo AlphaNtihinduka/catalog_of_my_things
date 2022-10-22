@@ -1,18 +1,17 @@
+require './save_game'
 class Author
-  attr_accessor :first_name, :last_name, :items
-  attr_reader :id
+  attr_accessor :id, :first_name, :last_name
+  attr_reader :games
 
   def initialize(first_name, last_name)
     @id = Random.rand(1..1000)
     @first_name = first_name
     @last_name = last_name
-    @items = []
+    @games = []
   end
 
-  def add_item(item)
-    @items = push(item)
-    item.add_author = self unless item.author == self
+  def add_game(game)
+    @games << game unless @games.include?(game)
+    game.author = self
   end
 end
-author = Author.new('Aneal', 'Layeal')
-puts author.last_name
