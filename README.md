@@ -4,6 +4,9 @@
 
 > The console app helps you to keep a record of different types of things you own: books, music albums, movies, and games. Everything is based on the UML class diagram. The data is stored in JSON files but also prepared a database with tables structure analogical to your program's class structure.
 
+# link to the video of members explaining the features they worked on
+![TEAM VIDEO](https://youfiles.herokuapp.com/videodictionary/?m=Video_Player_Drive&state=%7B%22ids%22:%5B%221C214Nng3jnfhIW7uFb9CYlVytS7uWsh_%22%5D,%22action%22:%22open%22,%22resourceKeys%22:%7B%7D%7D)
+
 # Features
 
 - Item class
