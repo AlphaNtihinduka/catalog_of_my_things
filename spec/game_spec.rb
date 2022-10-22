@@ -14,6 +14,5 @@ describe Game do
     it 'Return the exact multiplayer' do
       expect(game.multiplayer).to eq 'yes'
     end
-
   end
 end
