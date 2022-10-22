@@ -20,7 +20,6 @@ class App
     1. List all books
     2. List all labels
     3. Add a book
-
     4. Add a label
     5. Add Game 🎮🎇
     6. list all Games 🎮📃
