@@ -2,17 +2,15 @@ require './item'
 require './validity'
 
 class Book < Item
-  attr_accessor :publisher, :cover_state, :label
+  attr_accessor :publisher, :cover_state, :title, :color, :label, :publish_date
 
-  def initialize(publish_date, publisher, cover_state, label)
+  def initialize(publish_date, publisher, cover_state, title, color)
     @publisher = publisher
     @cover_state = cover_state
+    @title = title
+    @color = color
     @label = label
     super(publish_date)
-  end
-
-  def can_be_archieved?
-    super || @cover_state == 'bad'
   end
 
   def self.add_book(books)
@@ -30,7 +28,8 @@ class Book < Item
     print 'Color: '
     color = gets.chomp
     label = Label.new(title, color)
-    new_book = Book.new(publish_date, publisher, cover_state, label)
+    new_book = Book.new(publish_date, publisher, cover_state, title, color)
+    p new_book
     books << new_book
     label.add_book(new_book)
     puts '💥A book is added successfullly'
@@ -47,5 +46,11 @@ class Book < Item
       end
     end
     puts ''
+  end
+
+  private
+
+  def can_be_archieved?
+    super || @cover_state == 'bad'
   end
 end
