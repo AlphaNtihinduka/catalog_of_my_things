@@ -6,44 +6,67 @@ require 'json'
 class JsonHandler
   DATA_DIRECTORY = './data_json/'.freeze
 
-  def self.read_books(books)
-    path = "#{DATA_DIRECTORY}books.json"
-    return unless File.exist?(path)
+  def self.read_books
+    puts 'No books available' && return unless File.exist?('./data_json/books.json')
+    puts 'No books available' && return if File.read('./data_json/books.json').empty?
 
-    books_file = File.open(path)
-    JSON.parse(books_file.read).each do |book|
-      books << Book.new(book['publish_date'], book['publisher'], book['cover_state'], book['title'], book['color'])
+    books_file = File.read('./data_json/books.json')
+    JSON.parse(books_file).each do |book|
+      puts "
+        publish_date: #{book['publish_date']},
+        publisher: #{book['publisher']},
+        cover_state: #{book['cover_state']}
+      "
     end
   end
 
+  # WRITING TO THE BOOK
   def self.write_books(books)
     return if books.empty?
 
-    path_file = "#{DATA_DIRECTORY}books.json"
-    data_books = books.each_with_index do |book, index|
-       "#{index + 1} publish_date: #{book.publish_date} publisher: #{book.publisher} cover_state: #{book.cover_state}" 
+    book_array = []
+    books.each do |book|
+      book_array << {
+        id: book.id,
+        publish_date: book.publish_date,
+        publisher: book.publisher,
+        cover_state: book.cover_state
+      }
     end
-    File.write(path_file, JSON.pretty_generate(data_books))
+    prev_data = File.read('./data_json/books.json').empty? ? [] : JSON.parse(File.read('./data_json/books.json'))
+    prev_data.each do |data|
+      book_array << data
+    end
+    File.write('./data_json/books.json', book_array.to_json)
   end
 
-  def self.read_labels(labels)
-    return labels unless File.exist?('./data_json/labels.json')
-    # path = "#{DATA_DIRECTORY}labels.json"
-    # return unless File.exist?(path)
+  def self.read_labels
+    puts 'No labels available' && return unless File.exist?('./data_json/labels.json')
+    puts 'No labels available' && return if File.read('./data_json/labels.json').empty?
 
-    labels_file = File.open('./data_json/labels.json')
-    JSON.parse(labels_file.read).each do |label|
-      labels << Label.new(label['title'], label['color'])
+    labels_file = File.read('./data_json/labels.json')
+    JSON.parse(labels_file).each do |label|
+      puts "
+        Title: #{label['title']},
+        Color: #{label['color']}
+      "
     end
   end
 
   def self.write_labels(labels)
-    # return if labels.empty?
-    labels_array = []
-    # path_file = "#{DATA_DIRECTORY}labels.json"
+    return if labels.empty?
+
+    label_array = []
     labels.each do |label|
-      labels_array << { title: label.title, color: label.color }
+      label_array << {
+        title: label.title,
+        color: label.color
+      }
     end
-    File.write('./data_json/labels.json', JSON.pretty_generate(labels_array))
+    prev_data = File.read('./data_json/labels.json').empty? ? [] : JSON.parse(File.read('./data_json/labels.json'))
+    prev_data.each do |data|
+      label_array << data
+    end
+    File.write('./data_json/labels.json', label_array.to_json)
   end
 end
