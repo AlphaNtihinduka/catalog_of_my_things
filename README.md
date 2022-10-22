@@ -80,7 +80,7 @@ rspec spec
 
 ## Authors
 
-👤 **Apaubi Titilope**
+👤 **Aneal Laryea**
 
 - GitHub: [githubhandle](https://github.com/aneallaryea100)
 - Twitter: [twitterhandle](https://twitter.com/BonitoNarvaez)
