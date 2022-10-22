@@ -47,20 +47,25 @@ class SaveGame
         multiplayer: game.multiplayer
       }
     end
-    File.write('./saved/game.json', JSON.pretty_generate(game_array))
+    prev_data = File.read('./saved/game.json').empty? ? [] : JSON.parse(File.read('./saved/game.json'))
+    prev_data.each do |data|
+      game_array << data
+    end
+    File.write('./saved/game.json', game_array.to_json)
   end
 
   # read game data
-  def self.read_game(games)
-    # game_array = []
-    return games unless File.exist?('./saved/game.json')
-
+  def self.read_game
+    puts 'No games available' && return unless File.exist?('./saved/game.json')
+    puts 'No games available' && return if File.read('./saved/game.json').empty?
     game_file = File.read('./saved/game.json')
     data = JSON.parse(game_file)
     data.each do |game|
-      games << Game.new(game['publish_date'], game['last_played'], game['multiplayer'])
+      puts "
+      Publish Date: #{game['publish_date']},
+      Last Played: #{game['last_played']},
+      Multiplayer: #{game['multiplayer']}
+      "
     end
-    # game_file.close
-    games
   end
 end

@@ -58,7 +58,7 @@ class App
         SaveGame.write_game(@games)
         SaveGame.write_author(@authors)
       when 6
-        list_games
+        SaveGame.read_game
       when 8
         SaveGame.read_author
       when 9
@@ -115,7 +115,11 @@ class App
     puts 'Sorry! There are no games ☹️ , please add a game by using the list of options.' if @games.empty?
     puts ''
     @games.each_with_index do |game, i|
-      puts "#{i} Published date:\"#{game.publish_date}\", Last Played:\"#{game.last_played_at}\", Multiplayer:\"#{game.multiplayer}\" "
+      puts "
+      #{i} Published date:\"#{game.publish_date}\",
+      Last Played:\"#{game.last_played_at}\",
+      Multiplayer:\"#{game.multiplayer}\"
+      "
     end
   end
 end

@@ -1,7 +1,7 @@
 require_relative '../game'
 describe Game do
   context 'Testing the Game class' do
-    game = Game.new('02/05/2020', '03/04/2022', 'yes', 'Micheal', 'Freeman')
+    game = Game.new('02/05/2020', '03/04/2022', 'yes')
 
     it 'Return the exact publised date' do
       expect(game.publish_date).to eq '02/05/2020'
@@ -15,12 +15,5 @@ describe Game do
       expect(game.multiplayer).to eq 'yes'
     end
 
-    it 'Return the exact First name' do
-      expect(game.first_name).to eq 'Micheal'
-    end
-
-    it 'Return the exact last name' do
-      expect(game.last_name).to eq 'Freeman'
-    end
   end
 end
