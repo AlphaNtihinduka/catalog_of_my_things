@@ -11,7 +11,6 @@ require './game'
 require './author'
 require_relative './save_game'
 
-
 class App
   def initialize
     @books = []
@@ -25,16 +24,15 @@ class App
   def options
     'Do you want to choose an option in the menu? Please type an option number:
     1. List all books
-    2. List all labels
-    9. List all Music Album
-    10. List all Genres
-    3. Add a book
-    4. Add a label
-    11. Add a Music Album
-    5. Add Game 🎮🎇
-    6. list all Games 🎮📃
-    8. List all Authors 📃👨‍🏫
-    9. Exit
+    2. List all Music Album
+    3. list all Games 🎮📃
+    4. List all Genres
+    5. List all labels
+    6. List all Authors 📃👨‍🏫
+    7. Add a book
+    8. Add a Music Album
+    9. Add Game 🎮🎇
+    10. Exit
     Please choose an option:'
   end
 
@@ -46,36 +44,30 @@ class App
       puts '***********'
       option = gets.chomp.to_i
       case option
-    
-
-      when 9 then MusicAlbum.list_all_albums(@albums)
-      when 10 then Genre.list_all_genres(@genres)
-     
-    
-      when 11 then MusicAlbum.create_music_album(@albums, @genres)
-      when 25
-        UserInput.save_data(@albums, @genres)
-        exit
-      else puts 'Invalid option'
-
       when 1
         JsonHandler.read_books
       when 2
-        JsonHandler.read_labels
+        MusicAlbum.list_all_albums(@albums)
       when 3
-        add_book
+        SaveGame.read_game
       when 4
+        Genre.list_all_genres(@genres)
+      when 5
+        JsonHandler.read_labels
+      when 6
+        SaveGame.read_author
+      when 7
+        add_book
         JsonHandler.write_books(@books)
         JsonHandler.write_labels(@labels)
-      when 5
+      when 8
+        MusicAlbum.create_music_album(@albums, @genres)
+      when 9
         create_game
         SaveGame.write_game(@games)
         SaveGame.write_author(@authors)
-      when 6
-        SaveGame.read_game
-      when 8
-        SaveGame.read_author
-      when 9
+      when 10
+        UserInput.save_data(@albums, @genres)
         exit
       else
         puts 'Invalid option'
