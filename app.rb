@@ -114,7 +114,7 @@ class App
     end
     puts ''
   end
-  
+
   def create_game
     print 'Date Published: '
     publish_date = gets.chomp
