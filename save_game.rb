@@ -15,21 +15,23 @@ class SaveGame
         last_name: author.last_name
       }
     end
-    File.write('./saved/author.json', JSON.pretty_generate(author_array))
+    prev_data = File.read('./saved/author.json').empty? ? [] : JSON.parse(File.read('./saved/author.json'))
+    prev_data.each do |data|
+      author_array << data
+    end
+    File.write('./saved/author.json', author_array.to_json)
   end
 
   # read author
-  def self.read_author(games)
-    return games unless File.exist?('./saved/author.json')
-
-    author_file = File.open('./saved/author.json')
-    data = JSON.parse(author_file.read)
+  def self.read_author
+    puts 'No authors available' && return unless File.exist?('./saved/author.json')
+    puts 'No authors available' && return if File.read('./saved/author.json').empty?
+    author_file = File.read('./saved/author.json')
+    data = JSON.parse(author_file)
     data.each do |author|
-      games << Game.new(author['publish_date'], author['last_played'], author['multiplayer'], author['first_name'],
-                        author['last_name'])
+      puts "First name: #{author['first_name']}, Last name: #{author['last_name']}"
     end
-    author_file.close
-    games
+    # author_file
   end
 
   # write the game
@@ -53,13 +55,12 @@ class SaveGame
     # game_array = []
     return games unless File.exist?('./saved/game.json')
 
-    game_file = File.open('./saved/game.json')
-    data = JSON.parse(game_file.read)
+    game_file = File.read('./saved/game.json')
+    data = JSON.parse(game_file)
     data.each do |game|
-      games << Game.new(game['publish_date'], game['last_played'], game['multiplayer'], game['first_name'],
-                        game['last_name'])
+      games << Game.new(game['publish_date'], game['last_played'], game['multiplayer'])
     end
-    game_file.close
+    # game_file.close
     games
   end
 end

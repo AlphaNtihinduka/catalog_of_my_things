@@ -14,16 +14,4 @@ class Author
     @games << game unless @games.include?(game)
     game.author = self
   end
-
-  def self.list_author(authors)
-    if authors.empty?
-      puts 'Sorry there are no authors available 😔'
-      puts ''
-    else
-      authors.each_with_index do |author, i|
-        puts "#{i} ID:\"#{author.id}\", First Name: \"#{author.first_name}\", Last Name :\"#{author.last_name}\" "
-        puts '👨‍🏫📃'
-      end
-    end
-  end
 end

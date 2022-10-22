@@ -10,18 +10,18 @@ class App
     @books = []
     @labels = []
     @games = []
-    @author = []
+    @authors = []
   end
 
-  def save_data
-    SaveGame.write_game(@games)
-    SaveGame.write_author(@games)
-  end
+  # def save_data
+  #   SaveGame.write_game(@games)
+  #   SaveGame.write_author(@games)
+  # end
 
-  def read_data
-    SaveGame.read_author(@games)
-    SaveGame.read_game(@games)
-  end
+  # def read_data
+  #   SaveGame.read_author(@authors)
+  #   SaveGame.read_game(@games)
+  # end
 
   def options
     'Do you want to choose an option in the menu? Please type an option number:
@@ -37,7 +37,7 @@ class App
   end
 
   def menu
-    read_data
+    # read_data
     puts 'Welcome to my catalog'
     puts '💥💥💥💥💥💥💥'
     loop do
@@ -54,18 +54,68 @@ class App
       when 4
         Label.add_label(@labels)
       when 5
-        Game.create_game(@games)
+        create_game
         SaveGame.write_game(@games)
-        SaveGame.write_author(@games)
+        SaveGame.write_author(@authors)
       when 6
-        Game.list_games(@games)
+        list_games
       when 8
-        Author.list_author(@games)
+        SaveGame.read_author
       when 9
         exit
       else
         puts 'Invalid option'
       end
+    end
+  end
+
+  def create_game
+    print 'Date Published: '
+    publish_date = gets.chomp
+    print 'Last Played (eg:[2019/01/04]): '
+    last_played = gets.chomp
+    print 'It is a Multiplayer game [Y/N]: '
+    multiplayer_game = gets.chomp
+    multiplayer_choice = case multiplayer_game.downcase
+                         when 'y'
+                           'Yes'
+                         else
+                           'No'
+                         end
+    game = Game.new(publish_date, last_played, multiplayer_choice)
+    author = add_author
+    author.add_game(game)
+    @games << game
+    @authors << author
+    print 'Game created successfully 😊 😀'
+    puts ''
+  end
+
+  def add_author
+    print 'Enter first name: '
+    first_name = gets.chomp
+    print 'Enter last name: '
+    last_name = gets.chomp
+    Author.new(first_name, last_name)
+  end
+
+  def list_author
+    if @authors.empty?
+      puts 'Sorry there are no authors available 😔'
+      puts ''
+    else
+      @authors.each_with_index do |author, i|
+        puts "#{i} ID:\"#{author.id}\", First Name: \"#{author.first_name}\", Last Name :\"#{author.last_name}\" "
+        puts '👨‍🏫📃'
+      end
+    end
+  end
+
+  def list_games
+    puts 'Sorry! There are no games ☹️ , please add a game by using the list of options.' if @games.empty?
+    puts ''
+    @games.each_with_index do |game, i|
+      puts "#{i} Published date:\"#{game.publish_date}\", Last Played:\"#{game.last_played_at}\", Multiplayer:\"#{game.multiplayer}\" "
     end
   end
 end

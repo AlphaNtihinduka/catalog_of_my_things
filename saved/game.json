@@ -1,44 +1,8 @@
 [
   {
-    "id": 266,
-    "publish_date": null,
-    "last_played": null,
-    "multiplayer": null
-  },
-  {
-    "id": 62,
-    "publish_date": null,
-    "last_played": null,
-    "multiplayer": null
-  },
-  {
-    "id": 980,
-    "publish_date": null,
-    "last_played": null,
-    "multiplayer": null
-  },
-  {
-    "id": 590,
-    "publish_date": null,
-    "last_played": null,
-    "multiplayer": null
-  },
-  {
-    "id": 757,
-    "publish_date": "20/20/2014",
-    "last_played": "03/05/2016",
-    "multiplayer": "Yes"
-  },
-  {
-    "id": 610,
-    "publish_date": "02/02/2015",
-    "last_played": "03/01/2016",
-    "multiplayer": "No"
-  },
-  {
-    "id": 501,
-    "publish_date": "21/10/2022",
-    "last_played": "02/02/2003",
+    "id": 50,
+    "publish_date": "02/03/2020",
+    "last_played": "",
     "multiplayer": "Yes"
   }
 ]
