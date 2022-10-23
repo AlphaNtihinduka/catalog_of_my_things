@@ -1,44 +1,58 @@
 [
 	{
-		"id": "190",
+		"id": "936",
 		"title": "Tupac",
 		"genre": "Hiphop",
 		"release_date": "20/02/2011",
 		"on_spotify": "true"
 	},
 	{
-		"id": "784",
+		"id": "773",
 		"title": "23/06/2009",
 		"genre": "hshyu",
 		"release_date": "Joht",
 		"on_spotify": "true"
 	},
 	{
-		"id": "105",
+		"id": "805",
 		"title": "Ferda",
 		"genre": "Pop",
 		"release_date": "23/03/2003",
 		"on_spotify": "true"
 	},
 	{
-		"id": "76",
+		"id": "210",
 		"title": "30/10/2005",
 		"genre": "Rap",
 		"release_date": "Ashanti",
 		"on_spotify": "true"
 	},
 	{
-		"id": "276",
+		"id": "617",
 		"title": "Tiwa Savage",
 		"genre": "Afrobeat",
 		"release_date": "23/12/2022",
 		"on_spotify": "true"
 	},
 	{
-		"id": "171",
+		"id": "358",
 		"title": "12/10/2012",
 		"genre": "Rapp",
 		"release_date": "I am the one",
+		"on_spotify": "true"
+	},
+	{
+		"id": "637",
+		"title": "Buga",
+		"genre": "Afrobeat",
+		"release_date": "12/12/2009",
+		"on_spotify": "true"
+	},
+	{
+		"id": "335",
+		"title": "23/12/2000",
+		"genre": "Pop",
+		"release_date": "Fela",
 		"on_spotify": "true"
 	}
 ]
