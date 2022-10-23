@@ -1,7 +1,7 @@
 require 'time'
 
 class Item
-  attr_accessor :publish_date, :archieved, :id, :genre, :author, :source, :label
+  attr_reader :publish_date, :archieved, :id, :genre, :author, :source, :label
 
   def initialize(publish_date)
     @id = Random.rand(1..1000)
@@ -16,11 +16,7 @@ class Item
 
   def add_author(author)
     @author = author
-    # author.add_item(self) unless author.items.include?(self)
-  end
-
-  def add_source(source)
-    @source = source
+    author.add_item.push(self) unless author.add_item.include?(self)
   end
 
   def add_label(label)
